@@ -2,6 +2,9 @@
     --grid-cols: 1;
     --grid-rows: 1;
   }
+  body{
+    font-family: 'Roboto', sans-serif;
+  }
   
   #grid-container {
     display: grid;
@@ -32,6 +35,7 @@
     display: flex;
     padding: 10px;
     flex-direction: column;
+    align-items: center;
     border: #4b4a4a 4px solid;
     height: 584px;
     border-radius: 20px;
@@ -39,6 +43,8 @@
   }
 
   button{
+    display: flex;
+    align-items: center;
     background: none;
     border: #4b4a4a 2px  solid;
     border-radius: 5px;
@@ -49,25 +55,37 @@
   }
 
   .dimbtn:hover {
-    padding: 10px;
+    background-color: #d4d4d4;
   }
    .dimbtn.active {
-    padding: 10px;
+    
     background-color: #4b4a4a;
     color: white;
   }
   #clear-btn{
-    margin-top: 7rem;
+    margin-top: 5rem;
   }
   #clear-btn:hover{
     background-color: #4b4a4a;
     color: white;
   }
-  #black.active{
+ 
+  .color-btn:hover{
+    background-color: #d4d4d4;
+ 
+  }
+  
+  .color-btn.active{
     background-color: #4b4a4a;
     color: white;
+    
   }
-  #rainbow.active{
-    background-color: #4b4a4a;
-    color: white;
+  input{
+    padding: 0;
+    background: 0;
+    border: none;
+    height: 30px;
+    width: 30px;
+    
   }
+  

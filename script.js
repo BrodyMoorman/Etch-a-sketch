@@ -2,6 +2,7 @@ const container = document.getElementById("grid-container");
 let currentGridSize = 16;
 let currentGridButton = document.querySelector(".dimbtn.active")
 let colorMode = "black"
+let selectedColor = "#ff0000";
 
 
 
@@ -14,12 +15,16 @@ const cells = document.querySelectorAll(".grid-item");
 
 cells.forEach(cell => {
     cell.addEventListener("mouseover", (e)=>{
-      let currentColor = generateRandomColor()
+      
       if(colorMode === "rainbow"){
+        let currentColor = generateRandomColor()
         e.target.style.backgroundColor = currentColor
       }
       if (colorMode === "black"){
         e.target.style.backgroundColor = "black"
+      }
+      if (colorMode === "color"){
+        e.target.style.backgroundColor = selectedColor
       }
     })
     
@@ -58,6 +63,17 @@ blackButton.addEventListener("click",()=>{
   colorMode = "black"
   setActiveColor(blackButton);
   
+})
+
+const colorButton = document.getElementById("select-color")
+colorButton.addEventListener("click", ()=>{
+  colorMode = "color"
+  setActiveColor(colorButton)
+})
+
+const colorWell = document.getElementById("color-well")
+colorWell.addEventListener("input",(e)=>{
+  selectedColor = e.target.value;
 })
 
 function generateRandomColor(){
