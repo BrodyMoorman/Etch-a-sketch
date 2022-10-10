@@ -10,11 +10,13 @@ let selectedColor = "#ff0000";
 makeRows(16);
 createCellSelectors();
 setActiveColor(document.getElementById("black"))
+
 function createCellSelectors(){
 const cells = document.querySelectorAll(".grid-item");
 
 cells.forEach(cell => {
     cell.addEventListener("mouseover", (e)=>{
+      
       
       if(colorMode === "rainbow"){
         let currentColor = generateRandomColor()
@@ -26,6 +28,10 @@ cells.forEach(cell => {
       if (colorMode === "color"){
         e.target.style.backgroundColor = selectedColor
       }
+      if (colorMode === "erase"){
+        e.target.style.backgroundColor = "white"
+      }
+    
     })
     
 });
@@ -74,6 +80,12 @@ colorButton.addEventListener("click", ()=>{
 const colorWell = document.getElementById("color-well")
 colorWell.addEventListener("input",(e)=>{
   selectedColor = e.target.value;
+})
+
+const eraseButton = document.getElementById("erase")
+eraseButton.addEventListener("click", ()=>{
+  colorMode = "erase"
+  setActiveColor(eraseButton)
 })
 
 function generateRandomColor(){
